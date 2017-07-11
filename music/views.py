@@ -19,7 +19,7 @@ class IndexView(generic.ListView):
 		def get_context_data(self, **kwargs):
 			context = super(IndexView, self).get_context_data(**kwargs)
 			context['Works'] = Works.objects.all()
-		return context
+			return context
 
 class DetailView(generic.DetailView):
 	model = Album
@@ -49,9 +49,9 @@ class SongsView(generic.ListView):
     def get_queryset(self):
         return Sliders.objects.all()
 
-    	def get_context_data(self, **kwargs):
-    		context = super(SongsView, self).get_context_data(**kwargs)
-    		context['Works'] = Works.objects.all()
+    def get_context_data(self, **kwargs):
+   		context = super(SongsView, self).get_context_data(**kwargs)
+ 		context['Works'] = Works.objects.all()
 		return context
 
 
