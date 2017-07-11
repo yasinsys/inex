@@ -1,17 +1,4 @@
 
-
-from django.views import generic
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.core.urlresolvers import reverse_lazy
-from .models import Album, Song, Sliders, Works
-from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
-from django.views.generic import View
-from .forms import UserForm
-from django.shortcuts import render
-from django.utils import timezone
-
-
 class IndexView(generic.ListView):
     template_name = 'music/index.html'
     context_object_name = 'Sliders'
