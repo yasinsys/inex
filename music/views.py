@@ -1,14 +1,24 @@
+from django.views import generic
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core.urlresolvers import reverse_lazy
+from .models import Album, Song, Sliders, Works
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+from django.views.generic import View
+from .forms import UserForm
+from django.shortcuts import render
+from django.utils import timezone
 
 class IndexView(generic.ListView):
-    template_name = 'music/index.html'
-    context_object_name = 'Sliders'
+	template_name = 'music/index.html'
+	context_object_name = 'Sliders'
 
-    def get_queryset(self):
+	def get_queryset(self):
 		return Sliders.objects.all()
 
-    def get_context_data(self, **kwargs):
-        context = super(IndexView, self).get_context_data(**kwargs)
-        context['Works'] = Works.objects.all()
+		def get_context_data(self, **kwargs):
+			context = super(IndexView, self).get_context_data(**kwargs)
+			context['Works'] = Works.objects.all()
 		return context
 
 class DetailView(generic.DetailView):
@@ -39,9 +49,9 @@ class SongsView(generic.ListView):
     def get_queryset(self):
         return Sliders.objects.all()
 
-    def get_context_data(self, **kwargs):
-        context = super(SongsView, self).get_context_data(**kwargs)
-        context['Works'] = Works.objects.all()
+    	def get_context_data(self, **kwargs):
+    		context = super(SongsView, self).get_context_data(**kwargs)
+    		context['Works'] = Works.objects.all()
 		return context
 
 
